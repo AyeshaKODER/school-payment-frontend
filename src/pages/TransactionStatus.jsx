@@ -1,5 +1,5 @@
-import React from 'react';
-import StatusCheck from '../components/transactions/StatusCheck';
+import React from "react";
+import StatusCheck from "../components/transactions/StatusCheck.jsx"; // Add .jsx
 
 const TransactionStatus = () => {
   return (
@@ -16,3 +16,5 @@ const TransactionStatus = () => {
     </div>
   );
 };
+
+export default TransactionStatus;

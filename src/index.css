@@ -2,22 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom utilities */
+@layer utilities {
+  .border-border {
+    border: 1px solid #ccc;
+  }
+}
+
+/* Base styles */
 @layer base {
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
+/* Components */
 @layer components {
   .table-hover-effect {
     @apply transition-all duration-200 hover:bg-blue-50 hover:shadow-md hover:scale-[1.02] hover:-translate-y-1;
   }
-  
+
   .dark .table-hover-effect {
     @apply hover:bg-gray-800;
   }

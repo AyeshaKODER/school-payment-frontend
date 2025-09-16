@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Search, School, ChevronDown } from 'lucide-react';
-import TransactionTable from '../components/transactions/TransactionTable';
-import { useSchoolTransactions } from '../hooks/useApi';
-import { usePagination } from '../hooks/usePagination';
-import Loader from '../components/common/Loader';
+import React, { useState, useEffect } from "react";
+import { Search, School, ChevronDown } from "lucide-react";
+import TransactionTable from "../components/transactions/TransactionTable.jsx"; // Add .jsx
+import { useSchoolTransactions } from "../hooks/useApi";
+import { usePagination } from "../hooks/usePagination";
+import Loader from "../components/common/Loader.jsx"; // Add .jsx if needed
 
 const SchoolTransactions = () => {
   const [selectedSchool, setSelectedSchool] = useState('');
