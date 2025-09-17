@@ -2,28 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Apply base colors */
 @layer base {
   body {
     @apply bg-background text-foreground font-sans;
   }
-}
 
-/* Example reusable classes */
-@layer components {
-  .btn {
-    @apply px-4 py-2 rounded-lg font-medium transition-all;
-  }
-  .btn-primary {
-    @apply bg-primary text-white hover:bg-blue-600;
-  }
-  .btn-secondary {
-    @apply bg-secondary text-white hover:bg-pink-600;
-  }
-  .btn-accent {
-    @apply bg-accent text-white hover:bg-green-600;
-  }
-  .btn-danger {
-    @apply bg-danger text-white hover:bg-red-600;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-gray-800;
   }
 }
