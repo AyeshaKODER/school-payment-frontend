@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Then your custom styles */
+html, body {
+  @apply bg-background text-text font-sans;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+/* Example reusable classes */
+.navbar {
+  @apply bg-primary text-white px-6 py-3 flex items-center justify-between shadow-md;
+}
+
+.card {
+  @apply bg-card shadow-md rounded-2xl p-6 transition-transform hover:scale-[1.02];
+}
+
+.btn {
+  @apply px-4 py-2 rounded-lg font-medium transition-all;
+}
+.btn-primary {
+  @apply bg-primary text-white hover:bg-blue-600;
+}
+.btn-danger {
+  @apply bg-danger text-white hover:bg-red-600;
+}
