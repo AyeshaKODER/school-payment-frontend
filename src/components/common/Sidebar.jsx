@@ -84,8 +84,7 @@ const Sidebar = ({ isOpen, onClose }) => {
           </div>
 
           
-          {/* Navigation */}
-          <nav className="flex-1 px-4 py-4 space-y-2">
+<nav className="flex-1 px-4 py-4 space-y-2">
   {menuItems.map((item) => {
     const Icon = item.icon;
 
