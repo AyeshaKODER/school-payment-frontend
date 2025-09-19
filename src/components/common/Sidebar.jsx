@@ -19,6 +19,14 @@ const Sidebar = ({ isOpen, onClose }) => {
       icon: LayoutDashboard,
     },
     {
+    name: 'Payments',
+    icon: CreditCard,
+    children: [
+      { name: 'Make Payment', href: '/payment' },
+      { name: 'Payment History', href: '/payment-history' },
+    ],
+    },
+    {
       name: 'All Transactions',
       href: '/transactions',
       icon: CreditCard,
@@ -75,29 +83,60 @@ const Sidebar = ({ isOpen, onClose }) => {
             </button>
           </div>
 
+          
           {/* Navigation */}
           <nav className="flex-1 px-4 py-4 space-y-2">
-            {menuItems.map((item) => {
-              const isActive = location.pathname === item.href;
-              const Icon = item.icon;
+  {menuItems.map((item) => {
+    const Icon = item.icon;
 
-              return (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  onClick={onClose}
-                  className={`flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                    isActive
-                      ? 'bg-primary-500 text-white shadow-md'
-                      : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
-                  }`}
-                >
-                  <Icon className="h-5 w-5" />
-                  <span>{item.name}</span>
-                </Link>
-              );
-            })}
-          </nav>
+    // If item has children, render dropdown
+    if (item.children) {
+      return (
+        <div key={item.name} className="space-y-1">
+          <div className="flex items-center px-3 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+            {Icon && <Icon className="h-5 w-5 mr-2" />}
+            <span>{item.name}</span>
+          </div>
+          <div className="ml-6 space-y-1">
+            {item.children.map((child) => (
+              <Link
+                key={child.name}
+                to={child.href}
+                onClick={onClose}
+                className={`block px-3 py-2 rounded-lg text-sm transition-colors duration-200 ${
+                  location.pathname === child.href
+                    ? 'bg-primary-500 text-white shadow-md'
+                    : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                }`}
+              >
+                {child.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    // Normal single link
+    const isActive = location.pathname === item.href;
+    return (
+      <Link
+        key={item.name}
+        to={item.href}
+        onClick={onClose}
+        className={`flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+          isActive
+            ? 'bg-primary-500 text-white shadow-md'
+            : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+        }`}
+      >
+        {Icon && <Icon className="h-5 w-5" />}
+        <span>{item.name}</span>
+      </Link>
+    );
+  })}
+</nav>
+
 
           {/* Footer */}
           <div className="p-4 border-t border-gray-200 dark:border-gray-700">
