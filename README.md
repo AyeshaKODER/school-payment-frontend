@@ -213,19 +213,36 @@ npm run lint -- --fix
 
 ## 🔌 API Integration
 
-### Base Configuration
+### Backend Configuration
+
+The application is now fully integrated with your deployed backend:
 
 ```javascript
 // src/services/api.js
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = 'https://school-payment-backend-1.onrender.com/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 10000,
+  timeout: 30000, // Increased for Render.com cold starts
   headers: {
     'Content-Type': 'application/json',
   },
 });
+```
+
+### Authentication Integration
+
+The app now uses real backend authentication with fallback demo support:
+
+```javascript
+// Login with backend
+try {
+  const response = await authAPIService.login(credentials);
+  // Real backend authentication
+} catch (error) {
+  // Fallback to demo mode if backend unavailable
+  const demoResponse = await authAPIService.demoLogin();
+}
 ```
 
 ### Key Endpoints
@@ -245,7 +262,31 @@ const api = axios.create({
 - `useDebounce.js`: Debounced search functionality
 - `useUrlFilters.js`: URL state persistence
 
-## 🎨 UI Components
+## 🎨 UI Components & Responsive Design
+
+### 📱 Mobile-First Responsive Design
+
+**Responsive Breakpoints**:
+- **Mobile**: < 640px (sm)
+- **Tablet**: 640px - 1024px (md/lg)
+- **Desktop**: > 1024px (xl)
+
+**Responsive Features**:
+- **Mobile-optimized tables** with horizontal scroll
+- **Collapsible sidebar** for mobile navigation
+- **Responsive typography** scaling across devices
+- **Touch-friendly buttons** with proper sizing
+- **Flexible grid layouts** adapting to screen size
+- **Mobile-first CSS** using Tailwind's responsive utilities
+
+**Custom Responsive Classes**:
+```css
+.container-responsive { @apply w-full mx-auto px-4 sm:px-6 lg:px-8; }
+.mobile-padding { @apply p-4 sm:p-6 lg:p-8; }
+.responsive-grid { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6; }
+.responsive-text { @apply text-sm sm:text-base; }
+.responsive-heading { @apply text-xl sm:text-2xl lg:text-3xl; }
+```
 
 ### Design System
 
@@ -260,14 +301,16 @@ const api = axios.create({
 - Font Family: Inter (system fonts fallback)
 - Headings: Bold weights with appropriate sizing
 - Body: Regular weight with high readability
+- **Responsive text scaling** across all devices
 
 ### Interactive Elements
 
-**Hover Effects** (as specified in requirements):
-- Table rows: Subtle elevation with transform and shadow
-- Buttons: Color transitions and scaling
-- Cards: Border and shadow changes
-- Interactive elements: Smooth color transitions
+**Enhanced Hover Effects** (as specified in requirements):
+- **Table rows**: Subtle elevation with `transform hover:-translate-y-0.5`
+- **Buttons**: Smooth color transitions and focus states
+- **Cards**: Shadow and border animations
+- **Interactive elements**: Consistent transition timing
+- **Mobile touch states**: Optimized for touch devices
 
 ## 🌐 Deployment
 

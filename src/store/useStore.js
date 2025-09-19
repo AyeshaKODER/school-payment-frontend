@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import authAPIService from '../services/authAPI';
 
 const useStore = create(
   persist(
@@ -9,11 +10,14 @@ const useStore = create(
       toggleDarkMode: () => set((state) => ({ isDarkMode: !state.isDarkMode })),
       
       // User state
-      user: null,
-      token: null,
+      user: authAPIService.getCurrentUser(),
+      token: authAPIService.getToken(),
       setUser: (user) => set({ user }),
       setToken: (token) => set({ token }),
-      logout: () => set({ user: null, token: null }),
+      logout: () => {
+        authAPIService.logout();
+        set({ user: null, token: null });
+      },
       
       // Transactions state
       transactions: [],

@@ -58,7 +58,7 @@ const TransactionFilters = ({ onApplyFilters, onClearFilters, loading }) => {
   const activeFiltersCount = Object.values(filters).filter(Boolean).length;
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 mb-6">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow mobile-padding mb-4 sm:mb-6">
       {/* Search Bar */}
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0 lg:space-x-4 mb-4">
         <div className="relative flex-1 max-w-md">
@@ -100,7 +100,7 @@ const TransactionFilters = ({ onApplyFilters, onClearFilters, loading }) => {
 
       {/* Advanced Filters */}
       {showAdvanced && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-4 border-t border-gray-200 dark:border-gray-700">
           {/* Status Filter - Multi-select */}
           <div className="relative" ref={statusDropdownRef}>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">

@@ -159,12 +159,12 @@ const Transactions = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="container-responsive space-y-4 sm:space-y-6">
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-4 sm:space-y-0">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">All Transactions</h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-2">
+          <h1 className="responsive-heading font-bold text-gray-900 dark:text-white">All Transactions</h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-1 sm:mt-2 responsive-text">
             Manage and monitor all payment transactions
           </p>
         </div>
@@ -172,7 +172,7 @@ const Transactions = () => {
         <button
           onClick={handleExport}
           disabled={transactions.length === 0 || loading}
-          className="flex items-center space-x-2 px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex items-center space-x-2 px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base w-full sm:w-auto justify-center sm:justify-start"
         >
           <Download className="h-4 w-4" />
           <span>Export CSV</span>

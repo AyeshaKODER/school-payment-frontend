@@ -5,36 +5,10 @@ import Dashboard from './pages/Dashboard';
 import Transactions from './pages/Transactions';
 import SchoolTransactions from './pages/SchoolTransactions';
 import TransactionStatus from './pages/TransactionStatus';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 import useStore from './store/useStore';
 import Payment from './pages/Payment';
-// Mock Login component (you can replace with actual login)
-const Login = () => {
-  const { setUser, setToken } = useStore();
-
-  const handleLogin = () => {
-    // Mock login - replace with actual authentication
-    setUser({ name: 'Admin User', email: 'admin@schoolpay.com' });
-    setToken('mock-jwt-token');
-  };
-
-  return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-      <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">School Pay</h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-2">Payment Dashboard</p>
-        </div>
-        
-        <button
-          onClick={handleLogin}
-          className="w-full bg-primary-500 text-white py-3 px-4 rounded-lg hover:bg-primary-600 font-medium"
-        >
-          Login as Admin
-        </button>
-      </div>
-    </div>
-  );
-};
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -52,7 +26,8 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
           
           <Route path="/pay" element={<Payment />} />
           
