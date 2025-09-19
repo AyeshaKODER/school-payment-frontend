@@ -29,8 +29,6 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           
-          <Route path="/pay" element={<Payment />} />
-          
           <Route path="/" element={
             <ProtectedRoute>
               <Dashboard />
@@ -52,6 +50,12 @@ function App() {
           <Route path="/transaction-status" element={
             <ProtectedRoute>
               <TransactionStatus />
+            </ProtectedRoute>
+          } />
+          
+          <Route path="/pay" element={
+            <ProtectedRoute>
+              <Payment />
             </ProtectedRoute>
           } />
           

@@ -19,17 +19,14 @@ const Sidebar = ({ isOpen, onClose }) => {
       icon: LayoutDashboard,
     },
     {
-    name: 'Payments',
-    icon: CreditCard,
-    children: [
-      { name: 'Make Payment', href: '/payment' },
-      { name: 'Payment History', href: '/payment-history' },
-    ],
+      name: 'Make Payment',
+      href: '/pay',
+      icon: CreditCard,
     },
     {
       name: 'All Transactions',
       href: '/transactions',
-      icon: CreditCard,
+      icon: BarChart3,
     },
     {
       name: 'School Transactions',
@@ -40,11 +37,6 @@ const Sidebar = ({ isOpen, onClose }) => {
       name: 'Transaction Status',
       href: '/transaction-status',
       icon: CheckCircle,
-    },
-    {
-      name: 'Analytics',
-      href: '/analytics',
-      icon: BarChart3,
     },
   ];
 

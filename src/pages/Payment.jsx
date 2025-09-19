@@ -41,8 +41,17 @@ const Payment = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
-      <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Make a Payment</h1>
+    <div className="container-responsive">
+      <div className="max-w-2xl mx-auto">
+        {/* Page Header */}
+        <div className="mb-8">
+          <h1 className="responsive-heading font-bold text-gray-900 dark:text-white">Make a New Payment</h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-2 responsive-text">
+            Create a new payment request for school fees or services
+          </p>
+        </div>
+        
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow mobile-padding">
       
       <div className="mb-4">
         <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Name</label>
@@ -107,6 +116,8 @@ const Payment = () => {
           </a>
         </div>
       )}
+        </div>
+      </div>
     </div>
   );
 };
