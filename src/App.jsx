@@ -6,7 +6,7 @@ import Transactions from './pages/Transactions';
 import SchoolTransactions from './pages/SchoolTransactions';
 import TransactionStatus from './pages/TransactionStatus';
 import useStore from './store/useStore';
-
+import Payment from './pages/Payment';
 // Mock Login component (you can replace with actual login)
 const Login = () => {
   const { setUser, setToken } = useStore();
@@ -53,6 +53,8 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/login" element={<Login />} />
+          
+          <Route path="/pay" element={<Payment />} />
           
           <Route path="/" element={
             <ProtectedRoute>
