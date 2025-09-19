@@ -29,8 +29,8 @@ const useStore = create(
       
       // Filters state
       filters: {
-        status: '',
-        schoolId: '',
+        status: [],
+        schoolId: [],
         gateway: '',
         dateFrom: '',
         dateTo: '',
@@ -41,8 +41,8 @@ const useStore = create(
       })),
       clearFilters: () => set({
         filters: {
-          status: '',
-          schoolId: '',
+          status: [],
+          schoolId: [],
           gateway: '',
           dateFrom: '',
           dateTo: '',

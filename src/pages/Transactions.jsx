@@ -5,6 +5,7 @@ import TransactionFilters from '../components/transactions/TransactionFilters';
 import { useTransactions } from '../hooks/useApi';
 import { usePagination } from '../hooks/usePagination';
 import { useDebounce } from '../hooks/useDebounce';
+import { useUrlFilters } from '../hooks/useUrlFilters';
 import useStore from '../store/useStore';
 import { downloadCSV } from '../utils/helpers';
 import { ITEMS_PER_PAGE } from '../utils/constants';
@@ -12,6 +13,7 @@ import { ITEMS_PER_PAGE } from '../utils/constants';
 const Transactions = () => {
   const { filters, setFilters, clearFilters } = useStore();
   const { currentPage, limit, goToPage, goToNextPage, goToPreviousPage, changeLimit } = usePagination();
+  const { updateUrlWithFilters } = useUrlFilters();
   const [sortField, setSortField] = useState('payment_time');
   const [sortOrder, setSortOrder] = useState('desc');
 
@@ -42,11 +44,13 @@ const Transactions = () => {
 
   const handleApplyFilters = (newFilters) => {
     setFilters(newFilters);
+    updateUrlWithFilters(newFilters, 1, limit);
     goToPage(1); // Reset to first page when filters change
   };
 
   const handleClearFilters = () => {
     clearFilters();
+    updateUrlWithFilters({}, 1, limit);
     goToPage(1);
   };
 

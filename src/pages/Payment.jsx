@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
-import Input from "../components/ui/Input";
-import Button from "../components/ui/Button";
-import Select from "../components/ui/Select";
+import { Input } from "../components/ui/Input";
+import { Button } from "../components/ui/Button";
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../components/ui/select";
 
 import api from '../services/api'; // axios instance
 
@@ -38,34 +44,47 @@ const Payment = () => {
     <div className="max-w-md mx-auto mt-10 p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
       <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Make a Payment</h1>
       
-      <Input
-        label="Name"
-        placeholder="Enter your name"
-        value={form.name}
-        onChange={(e) => handleChange('name', e.target.value)}
-      />
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Name</label>
+        <Input
+          placeholder="Enter your name"
+          value={form.name}
+          onChange={(e) => handleChange('name', e.target.value)}
+        />
+      </div>
 
-      <Input
-        label="School ID"
-        placeholder="Enter School ID"
-        value={form.schoolId}
-        onChange={(e) => handleChange('schoolId', e.target.value)}
-      />
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">School ID</label>
+        <Input
+          placeholder="Enter School ID"
+          value={form.schoolId}
+          onChange={(e) => handleChange('schoolId', e.target.value)}
+        />
+      </div>
 
-      <Input
-        label="Amount"
-        type="number"
-        placeholder="Enter amount"
-        value={form.amount}
-        onChange={(e) => handleChange('amount', e.target.value)}
-      />
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Amount</label>
+        <Input
+          type="number"
+          placeholder="Enter amount"
+          value={form.amount}
+          onChange={(e) => handleChange('amount', e.target.value)}
+        />
+      </div>
 
-      <Select
-        label="Payment Method"
-        value={form.method}
-        onChange={(e) => handleChange('method', e.target.value)}
-        options={['UPI', 'Card', 'Netbanking']}
-      />
+      <div className="mb-4">
+        <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Payment Method</label>
+        <Select value={form.method} onValueChange={(value) => handleChange('method', value)}>
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Select payment method" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="UPI">UPI</SelectItem>
+            <SelectItem value="Card">Card</SelectItem>
+            <SelectItem value="Netbanking">Netbanking</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
 
       <Button
         onClick={handlePayment}
