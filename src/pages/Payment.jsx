@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { Input, Button, Select } from '../components/ui';
+import Input from "../components/ui/Input";
+import Button from "../components/ui/Button";
+import Select from "../components/ui/Select";
+
 import api from '../services/api'; // axios instance
 
 const Payment = () => {
