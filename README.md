@@ -4,8 +4,8 @@
 
 ## 🚀 Live Demo
 
-- **Hosted App**: [Coming Soon - Deploy to Vercel/Netlify]
-- **GitHub Repository**: [https://github.com/your-username/school-payment-frontend](https://github.com/your-username/school-payment-frontend)
+- **Hosted App**: [School Payment Dashboard](https://school-payment-frontend-xi.vercel.app)
+- **GitHub Repository**: [Frontend Code](https://github.com/AyeshaKODER/school-payment-frontend)
 
 ## 📋 Table of Contents
 
@@ -18,7 +18,7 @@
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
 
-## ✨ Features
+## Features
 
 ### Core Features
 
@@ -39,7 +39,7 @@
 - **🔄 Auto-refresh**: Real-time data updates
 - **📊 Data Visualization**: Transaction statistics and charts (optional)
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Frontend Framework**: React.js 18.2.0
 - **Build Tool**: Vite 4.5.0
@@ -56,7 +56,7 @@
   - class-variance-authority for component variants
   - tailwind-merge for class merging
 
-## 🚀 Project Setup
+## Project Setup
 
 ### Prerequisites
 
@@ -114,7 +114,7 @@ npm run lint
 npm run lint -- --fix
 ```
 
-## 📄 Page Documentation
+## Page Documentation
 
 ### 1. Dashboard (`/`)
 
@@ -211,7 +211,7 @@ npm run lint -- --fix
 - `Payment.jsx`
 - Form components (Input, Select, Button)
 
-## 🔌 API Integration
+## API Integration
 
 ### Backend Configuration
 
@@ -312,7 +312,7 @@ try {
 - **Interactive elements**: Consistent transition timing
 - **Mobile touch states**: Optimized for touch devices
 
-## 🌐 Deployment
+## Deployment
 
 ### Deploy to Vercel
 
@@ -384,8 +384,12 @@ try {
 
 ### Desktop View
 
-**Dashboard - Light Mode**
-![Dashboard Light](./screenshots/dashboard-light.png)
+
+**Login Page**  
+![Login Dark](./screenshots/login.png)
+
+**Register Page**  
+![Register Light](./screenshots/registert.png)
 
 **Transactions Page - Dark Mode**
 ![Transactions Dark](./screenshots/transactions-dark.png)
@@ -438,11 +442,5 @@ try {
 - [ ] Unit tests to be added
 - [ ] E2E tests with Playwright
 - [ ] Performance optimization for large datasets
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
 
 **Built with ❤️ for efficient school payment management**
