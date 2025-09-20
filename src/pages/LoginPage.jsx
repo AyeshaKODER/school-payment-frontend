@@ -12,8 +12,8 @@ const LoginPage = () => {
   const { setUser, setToken } = useStore();
   
   const [formData, setFormData] = useState({
-    emailOrUsername: '',
-    password: ''
+    emailOrUsername: 'admin@gmail.com',
+    password: 'admin'
   });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -212,24 +212,36 @@ const LoginPage = () => {
               )}
             </div>
 
-            {/* Sign In Button */}
-            <Button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-primary-500 hover:bg-primary-600 text-white py-3 px-4 rounded-lg font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
-            >
-              {loading ? (
-                <>
-                  <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
-                  <span>Signing In...</span>
-                </>
-              ) : (
-                <>
-                  <LogIn className="h-4 w-4" />
-                  <span>Sign In</span>
-                </>
-              )}
-            </Button>
+
+              {/* Sign In Button */}
+              <Button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-primary-500 hover:bg-primary-600 text-white py-3 px-4 rounded-lg font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+              >
+                {loading ? (
+                  <>
+                    <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
+                    <span>Signing In...</span>
+                  </>
+                ) : (
+                  <>
+                    <LogIn className="h-4 w-4" />
+                    <span>Sign In</span>
+                  </>
+                )}
+              </Button>
+
+              {/* Demo Login Button */}
+              <Button
+                type="button"
+                disabled={loading}
+                onClick={handleDemoLogin}
+                className="w-full mt-4 bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+              >
+                <LogIn className="h-5 w-5 mr-2" />
+                Login as Admin (Demo)
+              </Button>
 
             {/* Register Link */}
             <div className="text-center">
