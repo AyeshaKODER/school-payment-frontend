@@ -356,7 +356,12 @@ try {
    ```
 
 3. **Environment Variables**
-   Add in Netlify dashboard under Site Settings → Environment Variables
+Add in Netlify dashboard under Site Settings → Environment Variables
+
+4. **One‑click Drop (fastest for submission)**
+- Build locally: `npm run build`
+- Go to https://app.netlify.com/drop and drag the `dist` folder.
+- Because this repo includes `public/_redirects`, client-side routes will work.
 
 ### Deploy to AWS Amplify
 
