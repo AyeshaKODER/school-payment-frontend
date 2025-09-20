@@ -17,7 +17,10 @@ const StatusCheck = () => {
     setError(null);
 
     try {
-      const response = await transactionAPI.getTransactionStatus(customOrderId.trim());
+      // Backend expects POST /check-status with { custom_order_id }
+      const response = await transactionAPI.checkTransactionStatus({
+        custom_order_id: customOrderId.trim(),
+      });
       setStatus(response.data);
     } catch (err) {
       setError(err.response?.data?.message || "Failed to fetch transaction status");

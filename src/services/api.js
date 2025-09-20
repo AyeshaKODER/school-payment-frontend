@@ -38,11 +38,12 @@ api.interceptors.response.use(
   }
 );
 
+// NOTE: API_BASE_URL already includes `/api`. Do not prefix routes with `/api` again.
 export const transactionAPI = {
-  getTransactions: (params = {}) => api.get('/api/transactions', { params }),
-  getSchoolTransactions: (schoolId, params = {}) => api.get(`/api/transactions/${schoolId}`, { params }),
-  checkTransactionStatus: (data) => api.post('/api/check-status', data),
-  createPayment: (paymentData) => api.post('/api/payment/create-payment', paymentData),
+  getTransactions: (params = {}) => api.get('/transactions', { params }),
+  getSchoolTransactions: (schoolId, params = {}) => api.get(`/transactions/${schoolId}`, { params }),
+  checkTransactionStatus: (data) => api.post('/check-status', data),
+  createPayment: (paymentData) => api.post('/payment/create-payment', paymentData),
 };
 
 export default api;

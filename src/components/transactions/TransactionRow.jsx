@@ -50,6 +50,12 @@ const TransactionRow = ({ transaction, isSelected, onSelect, getStatusColor }) =
       
       <td className="px-6 py-4 whitespace-nowrap">
         <span className="text-sm text-gray-900 dark:text-white">
+          {transaction.custom_order_id || 'N/A'}
+        </span>
+      </td>
+      
+      <td className="px-6 py-4 whitespace-nowrap">
+        <span className="text-sm text-gray-900 dark:text-white">
           {transaction.school_id || 'N/A'}
         </span>
       </td>

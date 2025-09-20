@@ -59,6 +59,7 @@ const Transactions = () => {
     
     const exportData = transactions.map(transaction => ({
       'Collect ID': transaction.collect_id,
+      'Custom Order ID': transaction.custom_order_id,
       'School ID': transaction.school_id,
       'Gateway': transaction.gateway,
       'Order Amount': transaction.order_amount,

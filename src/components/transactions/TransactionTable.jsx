@@ -15,6 +15,7 @@ const TransactionTable = ({
 
   const columns = [
     { key: 'collect_id', label: 'Collect ID', sortable: true },
+    { key: 'custom_order_id', label: 'Custom Order ID', sortable: true },
     { key: 'school_id', label: 'School ID', sortable: true },
     { key: 'gateway', label: 'Gateway', sortable: true },
     { key: 'order_amount', label: 'Order Amount', sortable: true },
