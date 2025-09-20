@@ -8,7 +8,7 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
-    minify: 'esbuild', // Changed from 'terser' to 'esbuild'
+    minify: 'esbuild', // This fixes the terser issue
     rollupOptions: {
       output: {
         manualChunks: {
@@ -16,13 +16,5 @@ export default defineConfig({
         }
       }
     }
-  },
-  server: {
-    port: 3001,
-    host: true
-  },
-  preview: {
-    port: 4173,
-    host: true
   }
 })
