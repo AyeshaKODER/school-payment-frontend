@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Search, CheckCircle, XCircle, Clock, AlertCircle } from "lucide-react";
-import { transactionAPI } from "../../services/api";
-import Loader from "../common/Loader";
-import { formatCurrency, formatDate } from "../../utils/formatters";
+import React, { useState } from 'react';
+import { Search, CheckCircle, XCircle, Clock, AlertCircle } from 'lucide-react';
+import { transactionAPI } from '../../services/api';
+import Loader from '../common/Loader';
+import { formatCurrency, formatDate } from '../../utils/formatters';
 
 const StatusCheck = () => {
-  const [customOrderId, setCustomOrderId] = useState("");
+  const [customOrderId, setCustomOrderId] = useState('');
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -17,13 +17,10 @@ const StatusCheck = () => {
     setError(null);
 
     try {
-      // Backend expects POST /check-status with { custom_order_id }
-      const response = await transactionAPI.checkTransactionStatus({
-        custom_order_id: customOrderId.trim(),
-      });
+      const response = await transactionAPI.getTransactionStatus(customOrderId.trim());
       setStatus(response.data);
     } catch (err) {
-      setError(err.response?.data?.message || "Failed to fetch transaction status");
+      setError(err.response?.data?.message || 'Failed to fetch transaction status');
       setStatus(null);
     } finally {
       setLoading(false);
@@ -32,11 +29,11 @@ const StatusCheck = () => {
 
   const getStatusIcon = (statusValue) => {
     switch (statusValue?.toLowerCase()) {
-      case "success":
+      case 'success':
         return <CheckCircle className="h-8 w-8 text-green-500" />;
-      case "failed":
+      case 'failed':
         return <XCircle className="h-8 w-8 text-red-500" />;
-      case "pending":
+      case 'pending':
         return <Clock className="h-8 w-8 text-yellow-500" />;
       default:
         return <AlertCircle className="h-8 w-8 text-gray-500" />;
@@ -45,14 +42,14 @@ const StatusCheck = () => {
 
   const getStatusColor = (statusValue) => {
     switch (statusValue?.toLowerCase()) {
-      case "success":
-        return "text-green-600 bg-green-50 border-green-200";
-      case "failed":
-        return "text-red-600 bg-red-50 border-red-200";
-      case "pending":
-        return "text-yellow-600 bg-yellow-50 border-yellow-200";
+      case 'success':
+        return 'text-green-600 bg-green-50 border-green-200';
+      case 'failed':
+        return 'text-red-600 bg-red-50 border-red-200';
+      case 'pending':
+        return 'text-yellow-600 bg-yellow-50 border-yellow-200';
       default:
-        return "text-gray-600 bg-gray-50 border-gray-200";
+        return 'text-gray-600 bg-gray-50 border-gray-200';
     }
   };
 
@@ -71,7 +68,7 @@ const StatusCheck = () => {
               placeholder="Enter Custom Order ID"
               value={customOrderId}
               onChange={(e) => setCustomOrderId(e.target.value)}
-              onKeyPress={(e) => e.key === "Enter" && handleCheckStatus()}
+              onKeyPress={(e) => e.key === 'Enter' && handleCheckStatus()}
               className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             />
           </div>
@@ -112,7 +109,7 @@ const StatusCheck = () => {
                     status.status
                   )}`}
                 >
-                  {status.status?.toUpperCase() || "UNKNOWN"}
+                  {status.status?.toUpperCase() || 'UNKNOWN'}
                 </div>
               </div>
             </div>
@@ -140,28 +137,36 @@ const StatusCheck = () => {
                 <label className="block text-sm font-medium text-gray-600 dark:text-gray-300">
                   Payment Mode
                 </label>
-                <p className="text-gray-900 dark:text-white">{status.payment_mode || "N/A"}</p>
+                <p className="text-gray-900 dark:text-white">
+                  {status.payment_mode || 'N/A'}
+                </p>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-600 dark:text-gray-300">
                   Gateway
                 </label>
-                <p className="text-gray-900 dark:text-white">{status.gateway || "N/A"}</p>
+                <p className="text-gray-900 dark:text-white">
+                  {status.gateway || 'N/A'}
+                </p>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-600 dark:text-gray-300">
                   Payment Time
                 </label>
-                <p className="text-gray-900 dark:text-white">{formatDate(status.payment_time)}</p>
+                <p className="text-gray-900 dark:text-white">
+                  {formatDate(status.payment_time)}
+                </p>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-600 dark:text-gray-300">
                   Bank Reference
                 </label>
-                <p className="text-gray-900 dark:text-white">{status.bank_reference || "N/A"}</p>
+                <p className="text-gray-900 dark:text-white">
+                  {status.bank_reference || 'N/A'}
+                </p>
               </div>
 
               {status.payment_message && (
@@ -169,16 +174,20 @@ const StatusCheck = () => {
                   <label className="block text-sm font-medium text-gray-600 dark:text-gray-300">
                     Payment Message
                   </label>
-                  <p className="text-gray-900 dark:text-white">{status.payment_message}</p>
+                  <p className="text-gray-900 dark:text-white">
+                    {status.payment_message}
+                  </p>
                 </div>
               )}
 
-              {status.error_message && status.error_message !== "NA" && (
+              {status.error_message && status.error_message !== 'NA' && (
                 <div className="md:col-span-2">
                   <label className="block text-sm font-medium text-red-600 dark:text-red-400">
                     Error Message
                   </label>
-                  <p className="text-red-700 dark:text-red-300">{status.error_message}</p>
+                  <p className="text-red-700 dark:text-red-300">
+                    {status.error_message}
+                  </p>
                 </div>
               )}
             </div>
@@ -189,4 +198,53 @@ const StatusCheck = () => {
   );
 };
 
-export default StatusCheck;
+export default StatusCheck;-nowrap">
+        <input
+          type="checkbox"
+          checked={isSelected}
+          onChange={onSelect}
+          className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+        />
+      </td>
+      
+      <td className="px-6 py-4 whitespace-nowrap">
+        <div className="flex items-center space-x-2">
+          <span className="text-sm font-medium text-gray-900 dark:text-white">
+            {truncateId(transaction.collect_id)}
+          </span>
+          {isHovered && (
+            <button
+              onClick={() => copyToClipboard(transaction.collect_id)}
+              className="p-1 hover:bg-gray-200 dark:hover:bg-gray-600 rounded"
+            >
+              <Copy className="h-3 w-3 text-gray-500" />
+            </button>
+          )}
+        </div>
+      </td>
+      
+      <td className="px-6 py-4 whitespace-nowrap">
+        <span className="text-sm text-gray-900 dark:text-white">
+          {truncateId(transaction.school_id)}
+        </span>
+      </td>
+      
+      <td className="px-6 py-4 whitespace-nowrap">
+        <span className="text-sm font-medium text-gray-900 dark:text-white">
+          {transaction.gateway || 'N/A'}
+        </span>
+      </td>
+      
+      <td className="px-6 py-4 whitespace-nowrap">
+        <span className="text-sm font-semibold text-gray-900 dark:text-white">
+          {formatCurrency(transaction.order_amount)}
+        </span>
+      </td>
+      
+      <td className="px-6 py-4 whitespace-nowrap">
+        <span className="text-sm font-semibold text-gray-900 dark:text-white">
+          {formatCurrency(transaction.transaction_amount)}
+        </span>
+      </td>
+      
+      <td className="px-6 py-4 whitespace

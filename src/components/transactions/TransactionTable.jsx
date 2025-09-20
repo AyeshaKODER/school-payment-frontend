@@ -15,7 +15,6 @@ const TransactionTable = ({
 
   const columns = [
     { key: 'collect_id', label: 'Collect ID', sortable: true },
-    { key: 'custom_order_id', label: 'Custom Order ID', sortable: true },
     { key: 'school_id', label: 'School ID', sortable: true },
     { key: 'gateway', label: 'Gateway', sortable: true },
     { key: 'order_amount', label: 'Order Amount', sortable: true },
@@ -79,8 +78,8 @@ const TransactionTable = ({
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
       {/* Table Header Actions */}
-      <div className="px-4 sm:px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between space-y-3 sm:space-y-0">
+      <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex items-center justify-between">
           <h3 className="text-lg font-medium text-gray-900 dark:text-white">
             Transactions ({transactions.length})
           </h3>
@@ -101,17 +100,6 @@ const TransactionTable = ({
       {/* Table */}
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-          <colgroup>
-            <col className="w-12" />
-            <col className="min-w-[120px]" />
-            <col className="min-w-[100px]" />
-            <col className="min-w-[100px]" />
-            <col className="min-w-[120px]" />
-            <col className="min-w-[140px]" />
-            <col className="min-w-[100px]" />
-            <col className="min-w-[140px]" />
-            <col className="min-w-[120px]" />
-          </colgroup>
           <thead className="bg-gray-50 dark:bg-gray-900">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
