@@ -1,8 +1,9 @@
 {
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "src/main.jsx",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist", "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
     }
   ]
 }
